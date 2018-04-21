@@ -1,0 +1,182 @@
+package com.demospeachjava.activity.chat;
+
+import android.content.Intent;
+import android.net.Uri;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TextView;
+import com.bumptech.glide.Glide;
+import com.demospeachjava.R;
+import com.demospeachjava.adapter.AdapterMensajes;
+import com.demospeachjava.model.ObjetoMensaje;
+import com.demospeachjava.utils.MensajeEnviar;
+import com.demospeachjava.utils.MensajeRecibir;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.*;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import de.hdodenhof.circleimageview.CircleImageView;
+
+public class ChatActivity extends AppCompatActivity {
+        private CircleImageView fotoPerfil;
+        private TextView nombre;
+        private RecyclerView rvMensajes;
+        private EditText txtMensaje;
+        private Button btnEnviar;
+        private ImageButton btnEnviarFoto;
+        private FirebaseStorage storage;
+        private StorageReference storageReference;
+        private static final int PHOTO_SEND = 1;
+        private static final int PHOTO_PERFIL = 2;
+        private String fotoPerfilCadena;
+
+        private AdapterMensajes adapter;
+
+        private FirebaseDatabase database;
+        private DatabaseReference databaseReference;
+
+        @Override
+        public void onCreate(Bundle savedInstanceState){
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_chat);
+
+            initToolbar();
+            initComponent();
+
+        }
+    private void initToolbar() {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+        private void initComponent() {
+            fotoPerfil = (CircleImageView) findViewById(R.id.fotoPerfil);
+            nombre = (TextView) findViewById(R.id.nombre);
+            rvMensajes = (RecyclerView) findViewById(R.id.rvMensajes);
+            txtMensaje = (EditText) findViewById(R.id.txtMensaje);
+            btnEnviar = (Button) findViewById(R.id.btnEnviar);
+            btnEnviarFoto = (ImageButton) findViewById(R.id.btnEnviarFoto);
+            fotoPerfilCadena = "";
+
+            database = FirebaseDatabase.getInstance();
+            databaseReference = database.getReference("chat");//Sala de chat
+            storage = FirebaseStorage.getInstance();
+
+            adapter = new AdapterMensajes(this);
+            LinearLayoutManager l = new LinearLayoutManager(this);
+            rvMensajes.setLayoutManager(l);
+            rvMensajes.setAdapter(adapter);
+
+            btnEnviar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    databaseReference.push().setValue(new MensajeEnviar(txtMensaje.getText().toString(),
+                            nombre.getText().toString(),fotoPerfilCadena,"1",ServerValue.TIMESTAMP));
+                    txtMensaje.setText("");
+                }
+            });
+
+            adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
+                @Override
+                public void onItemRangeInserted(int positionStart, int itemCount) {
+                    super.onItemRangeInserted(positionStart, itemCount);
+                    setScrollbar();
+                }
+            });
+
+            btnEnviarFoto.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(Intent.ACTION_GET_CONTENT);
+                    i.setType("image/jpeg");
+                    i.putExtra(Intent.EXTRA_LOCAL_ONLY,true);
+                    startActivityForResult(Intent.createChooser(i,"Selecciona una foto"),PHOTO_SEND);
+                }
+            });
+
+            fotoPerfil.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(Intent.ACTION_GET_CONTENT);
+                    i.setType("image/jpeg");
+                    i.putExtra(Intent.EXTRA_LOCAL_ONLY,true);
+                    startActivityForResult(Intent.createChooser(i,"Selecciona una foto"),PHOTO_PERFIL);
+                }
+            });
+
+            databaseReference.addChildEventListener(new ChildEventListener() {
+                @Override
+                public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                    MensajeRecibir om = dataSnapshot.getValue(MensajeRecibir.class);
+                    adapter.addMensaje(om);
+                }
+
+                @Override
+                public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+                }
+
+                @Override
+                public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+                }
+
+                @Override
+                public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+        }
+
+    private void setScrollbar() {
+            rvMensajes.scrollToPosition(adapter.getItemCount()-1);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PHOTO_SEND && resultCode == RESULT_OK){
+            Uri u = data.getData();
+            storageReference = storage.getReference("imagenes_chat");
+            final StorageReference fotoReferencia = storageReference.child(u.getLastPathSegment());
+            fotoReferencia.putFile(u).addOnSuccessListener(this, new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    Uri u = taskSnapshot.getDownloadUrl();
+                    MensajeEnviar om = new MensajeEnviar("Carla te ha enviado un mensaje",
+                            u.toString(),nombre.getText().toString(),fotoPerfilCadena,"2",ServerValue.TIMESTAMP);
+                    databaseReference.push().setValue(om);
+                }
+            });
+        }else if (requestCode == PHOTO_PERFIL && resultCode == RESULT_OK){
+            Uri u = data.getData();
+            storageReference = storage.getReference("foto_perfil");
+            final StorageReference fotoReferencia = storageReference.child(u.getLastPathSegment());
+            fotoReferencia.putFile(u).addOnSuccessListener(this, new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    Uri u = taskSnapshot.getDownloadUrl();
+                    fotoPerfilCadena = u.toString();
+                    MensajeEnviar om = new MensajeEnviar("Ha actualizado su foto de perfil",
+                            u.toString(),nombre.getText().toString(),fotoPerfilCadena,"2",ServerValue.TIMESTAMP);
+                    databaseReference.push().setValue(om);
+                    Glide.with(ChatActivity.this).load(u.toString()).into(fotoPerfil);
+                }
+            });
+        }
+    }
+}

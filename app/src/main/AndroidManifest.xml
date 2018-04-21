@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.demospeachjava">
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
+
+
+    <application
+            android:allowBackup="true"
+            android:icon="@drawable/ic_logo_login"
+            android:label="@string/app_name"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme">
+        <activity android:name=".activity.MainLogin">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.MainMenu">
+        </activity>
+        <activity
+                android:name=".activity.contact.Contact"
+                android:parentActivityName=".activity.MainMenu"
+                android:theme="@style/AppTheme">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".activity.MainMenu"/>
+        </activity>
+        <activity
+                android:name=".activity.contact.ViewContact"
+                android:parentActivityName=".activity.contact.Contact"
+                android:theme="@style/AppTheme">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".activity.contact.Contact"/>
+        </activity>
+        <activity android:name=".activity.contact.EditContact">
+        </activity>
+        <activity
+                android:name=".activity.contact.CreateContact"
+                android:parentActivityName=".activity.contact.Contact"
+                android:theme="@style/AppTheme">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".activity.contact.Contact"/>
+        </activity>
+        <activity
+                android:name=".activity.aggression.Aggression"
+                android:parentActivityName=".activity.MainMenu"
+                android:theme="@style/AppTheme">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".activity.aggression.Aggression"/>
+        </activity>
+        <activity
+                android:name=".activity.complaint.Complaint"
+                android:parentActivityName=".activity.MainMenu"
+                android:theme="@style/AppTheme">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".activity.MainMenu"/>
+        </activity>
+        <activity
+                android:name=".activity.chat.ChatActivity"
+                android:label="Chat"
+                android:parentActivityName=".activity.MainMenu"
+                android:theme="@style/AppTheme">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".activity.chat.ChatActivity"/>
+        </activity>
+        <activity
+                android:name=".activity.configure.Configure"
+                android:parentActivityName=".activity.MainMenu"
+                android:theme="@style/AppTheme">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".activity.MainMenu"/>
+        </activity>
+        <activity
+                android:name=".activity.configure.Say"
+                android:parentActivityName=".activity.configure.Configure"
+                android:theme="@style/AppTheme">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".activity.configure.Configure"/>
+        </activity>
+        <activity
+                android:name=".activity.MainRegister"
+                android:parentActivityName=".activity.MainLogin"
+                android:theme="@style/AppTheme">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".activity.MainLogin"/>
+        </activity>
+        <activity
+                android:name=".activity.configure.Profile"
+                android:parentActivityName=".activity.configure.Configure"
+                android:theme="@style/AppTheme">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".activity.configure.Configure"/>
+        </activity>
+        <service android:enabled="true" android:name=".service.recorder" />
+    </application>
+
+
+</manifest>

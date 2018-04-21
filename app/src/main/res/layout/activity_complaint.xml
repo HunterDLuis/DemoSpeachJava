@@ -1,0 +1,906 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@android:color/white"
+              android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <include layout="@layout/toolbar" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:scrollbars="vertical">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/spacing_large"
+                android:paddingRight="@dimen/spacing_large">
+
+            <!--top line-->
+
+            <LinearLayout
+                    android:layout_width="@dimen/spacing_xlarge"
+                    android:layout_height="@dimen/spacing_mlarge"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                <View
+                        android:layout_width="2dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/grey_10" />
+
+            </LinearLayout>
+
+            <!--section title-->
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                    <RelativeLayout
+                            android:id="@+id/step_user"
+                            android:layout_width="@dimen/spacing_xlarge"
+                            android:layout_height="@dimen/spacing_xlarge"
+                            android:background="@drawable/shape_round_solid"
+                            android:gravity="center">
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                android:textColor="@android:color/white" />
+
+                    </RelativeLayout>
+
+                    <View
+                            android:layout_width="2dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/grey_10"
+                            android:minHeight="?attr/actionBarSize" />
+
+                </LinearLayout>
+
+                <View
+                        android:layout_width="@dimen/spacing_xsmall"
+                        android:layout_height="0dp" />
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="?attr/actionBarSize"
+                        android:orientation="vertical">
+
+                    <TextView
+                            android:id="@+id/tv_label_user"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/spacing_xlarge"
+                            android:gravity="center_vertical"
+                            android:onClick="clickLabel"
+                            android:paddingLeft="@dimen/spacing_large"
+                            android:paddingRight="@dimen/spacing_small"
+                            android:text="@string/stepper_complaint_user"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:textColor="@color/grey_90" />
+
+                    <LinearLayout
+                            android:id="@+id/lyt_user"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/spacing_large"
+                            android:orientation="vertical">
+
+                        <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_horizontal"
+                                android:orientation="vertical">
+
+                            <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/spacing_large"
+                                    android:orientation="vertical">
+
+                                <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="@color/grey_10" />
+
+                                <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal"
+                                        android:paddingBottom="@dimen/spacing_large"
+                                        android:paddingTop="@dimen/spacing_large">
+
+                                    <LinearLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:background="?attr/selectableItemBackgroundBorderless"
+                                            android:clickable="true"
+                                            android:gravity="center"
+                                            android:orientation="vertical">
+
+                                        <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="@string/stepper_userfirsname"
+                                                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                                                android:textColor="@color/colorAccent" />
+
+                                        <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="@dimen/spacing_medium"
+                                                android:text="Julianna Carter"
+                                                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                                android:textColor="@color/grey_60" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:background="?attr/selectableItemBackgroundBorderless"
+                                            android:clickable="true"
+                                            android:gravity="center"
+                                            android:orientation="vertical">
+
+                                        <TextView
+                                                android:id="@+id/textView11"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="@string/stepper_userlastname"
+                                                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                                                android:textColor="@color/colorAccent" />
+
+                                        <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="@dimen/spacing_medium"
+                                                android:text="Followers"
+                                                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                                android:textColor="@color/grey_60" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:background="?attr/selectableItemBackgroundBorderless"
+                                            android:clickable="true"
+                                            android:gravity="center"
+                                            android:orientation="vertical">
+
+                                        <TextView
+                                                android:id="@+id/textView12"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="@string/stepper_usercell_phone"
+                                                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                                                android:textColor="@color/colorAccent" />
+
+                                        <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="@dimen/spacing_medium"
+                                                android:text="68957458"
+                                                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                                android:textColor="@color/grey_60" />
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                                <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="@color/grey_10" />
+
+                            </LinearLayout>
+
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/spacing_xlarge"
+                                    android:layout_marginRight="@dimen/spacing_xlarge"
+                                    android:layout_marginTop="@dimen/spacing_large"
+                                    android:gravity="center"
+                                    android:lineSpacingExtra="2dp"
+                                    android:text="@string/middle_userdates"
+                                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
+                                    android:textColor="@color/grey_90" />
+
+                            <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:layout_marginTop="@dimen/spacing_large"
+                                    android:background="@color/grey_10" />
+
+                            <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/spacing_large"
+                                    android:orientation="horizontal">
+
+                                <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical">
+
+                                    <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/stepper_userdata_birth"
+                                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                            android:textColor="@color/colorAccent"
+                                            android:textStyle="bold" />
+
+                                    <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/spacing_medium"
+                                            android:text="12/12/1990"
+                                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                            android:textColor="@color/grey_60" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical">
+
+                                    <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/stepper_useremail"
+                                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                            android:textColor="@color/colorAccent"
+                                            android:textStyle="bold" />
+
+                                    <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/spacing_medium"
+                                            android:text="juliana.c@mail.com"
+                                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                            android:textColor="@color/grey_60" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/spacing_large"
+                                    android:orientation="horizontal">
+
+                                <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical">
+
+                                    <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/stepper_usertelephone_private"
+                                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                            android:textColor="@color/colorAccent"
+                                            android:textStyle="bold" />
+
+                                    <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/spacing_medium"
+                                            android:text="4772328"
+                                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                            android:textColor="@color/grey_60" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical">
+
+                                    <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/stepper_userstate"
+                                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                            android:textColor="@color/colorAccent"
+                                            android:textStyle="bold" />
+
+                                    <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/spacing_medium"
+                                            android:text="Soltera"
+                                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                            android:textColor="@color/grey_60" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/spacing_large"
+                                    android:orientation="horizontal">
+
+                                <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical">
+
+                                    <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/stepper_userci"
+                                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                            android:textColor="@color/colorAccent"
+                                            android:textStyle="bold" />
+
+                                    <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/spacing_medium"
+                                            android:text="5588748"
+                                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                            android:textColor="@color/grey_60" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical">
+
+                                    <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/stepper_useraddress"
+                                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                            android:textColor="@color/colorAccent"
+                                            android:textStyle="bold" />
+
+                                    <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/spacing_medium"
+                                            android:text="160th St, Fresh Meadows, NY, 11365"
+                                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                            android:textColor="@color/grey_60" />
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                            <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/spacing_xxlarge" />
+
+                        </LinearLayout>
+
+                        <Button
+                                android:id="@+id/bt_continue_user"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/btn_rounded_primary"
+                                android:minWidth="0dp"
+                                android:onClick="clickAction"
+                                android:text="CONTINUE"
+                                android:textColor="@android:color/white" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!--section description-->
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                    <RelativeLayout
+                            android:id="@+id/step_aggress"
+                            android:layout_width="@dimen/spacing_xlarge"
+                            android:layout_height="@dimen/spacing_xlarge"
+                            android:background="@drawable/shape_round_solid"
+                            android:gravity="center">
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="2"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                android:textColor="@android:color/white" />
+
+                    </RelativeLayout>
+
+                    <View
+                            android:layout_width="2dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/grey_10" />
+
+                </LinearLayout>
+
+                <View
+                        android:layout_width="@dimen/spacing_large"
+                        android:layout_height="0dp" />
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="?attr/actionBarSize"
+                        android:orientation="vertical">
+
+                    <TextView
+                            android:id="@+id/tv_label_aggress"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/spacing_xlarge"
+                            android:gravity="center_vertical"
+                            android:onClick="clickLabel"
+                            android:paddingLeft="@dimen/spacing_small"
+                            android:paddingRight="@dimen/spacing_small"
+                            android:text="@string/stepper_aggress"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:textColor="@color/grey_90" />
+
+                    <LinearLayout
+                            android:id="@+id/lyt_aggress"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/spacing_large"
+                            android:orientation="vertical">
+
+                        <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:orientation="vertical">
+
+
+
+
+                            <Button
+                                    android:id="@+id/bt_continue_aggress"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/btn_rounded_primary"
+                                    android:text="CONTINUE"
+                                    android:onClick="clickAction"
+                                    android:textColor="@android:color/white" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!--section Aggression-->
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                    <RelativeLayout
+                            android:id="@+id/step_aggression"
+                            android:layout_width="@dimen/spacing_xlarge"
+                            android:layout_height="@dimen/spacing_xlarge"
+                            android:background="@drawable/shape_round_solid"
+                            android:gravity="center">
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="3"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                android:textColor="@android:color/white" />
+
+                    </RelativeLayout>
+
+                    <View
+                            android:layout_width="2dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/grey_10" />
+
+                </LinearLayout>
+
+                <View
+                        android:layout_width="@dimen/spacing_large"
+                        android:layout_height="0dp" />
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="?attr/actionBarSize"
+                        android:orientation="vertical">
+
+                    <TextView
+                            android:id="@+id/tv_label_aggression"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/spacing_xxlarge"
+                            android:gravity="center_vertical"
+                            android:onClick="clickLabel"
+                            android:paddingLeft="@dimen/spacing_small"
+                            android:paddingRight="@dimen/spacing_small"
+                            android:text="@string/stepper_type_aggression_description"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:textColor="@color/grey_90" />
+
+                    <LinearLayout
+                            android:id="@+id/lyt_aggression"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/spacing_large"
+                            android:orientation="vertical">
+                        <RelativeLayout android:layout_width="match_parent"
+                                        android:layout_height="wrap_content">
+                            <Button
+                                    android:id="@+id/bt_type_aggression"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="@dimen/spacing_medium"
+                                    android:text="@string/stepper_type_aggression"/>
+                            <TextView
+                                    android:id="@+id/tvItemSelected"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/bt_type_aggression"
+                                    android:layout_marginTop="@dimen/spacing_medium"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                    android:textColor="@color/grey_60" />
+                        </RelativeLayout>
+
+                        <Button
+                                android:id="@+id/bt_continue_aggression"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/btn_rounded_primary"
+                                android:gravity="center"
+                                android:minWidth="0dp"
+                                android:onClick="clickAction"
+                                android:text="CONTINUE"
+                                android:textColor="@android:color/white" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!--section denuncia-->
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                    <RelativeLayout
+                            android:id="@+id/step_complaint"
+                            android:layout_width="@dimen/spacing_xlarge"
+                            android:layout_height="@dimen/spacing_xlarge"
+                            android:background="@drawable/shape_round_solid"
+                            android:gravity="center">
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="4"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                android:textColor="@android:color/white" />
+
+                    </RelativeLayout>
+
+                    <View
+                            android:layout_width="2dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/grey_10" />
+
+                </LinearLayout>
+
+                <View
+                        android:layout_width="@dimen/spacing_large"
+                        android:layout_height="0dp" />
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="?attr/actionBarSize"
+                        android:orientation="vertical">
+
+                    <TextView
+                            android:id="@+id/tv_label_complaint"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/spacing_xlarge"
+                            android:gravity="center_vertical"
+                            android:onClick="clickLabel"
+                            android:paddingLeft="@dimen/spacing_small"
+                            android:paddingRight="@dimen/spacing_small"
+                            android:text="@string/stepper_complaint"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:textColor="@color/grey_90" />
+
+                    <LinearLayout
+                            android:id="@+id/lyt_complaint"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/spacing_large"
+                            android:orientation="vertical">
+                        <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                            <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="@dimen/spacing_middle"
+                                    android:layout_marginTop="@dimen/spacing_middle"
+                                    android:orientation="vertical">
+
+                                <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:paddingLeft="@dimen/spacing_medium"
+                                        android:paddingRight="@dimen/spacing_medium"
+                                        android:text="@string/stepper_complaint_user_coverage"
+                                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                        android:textColor="@color/grey_90" />
+
+                                <RadioGroup
+                                        android:id="@+id/coverage"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/spacing_medium"
+                                        android:orientation="horizontal">
+
+                                    <android.support.v7.widget.AppCompatRadioButton
+                                            android:id="@+id/radio_public"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/stepper_complaint_user_coverage_public"
+                                            android:checked="true"
+                                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                            android:textColor="@color/grey_90" />
+
+                                    <View
+                                            android:layout_width="@dimen/spacing_mlarge"
+                                            android:layout_height="0dp" />
+
+                                    <android.support.v7.widget.AppCompatRadioButton
+                                            android:id="@+id/radio_private"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/stepper_complaint_user_coverage_private"
+                                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                            android:textColor="@color/grey_90" />
+
+                                </RadioGroup>
+
+                            </LinearLayout>
+
+
+                            <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/spacing_middle" />
+
+                            <android.support.design.widget.TextInputLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                <android.support.v7.widget.AppCompatEditText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:hint="@string/stepper_complaint_user_link"
+                                        android:inputType="text"
+                                        android:maxLines="1"
+                                />
+
+                            </android.support.design.widget.TextInputLayout>
+
+                            <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/spacing_middle" />
+
+                            <android.support.design.widget.TextInputLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="@dimen/spacing_large">
+
+                                <android.support.v7.widget.AppCompatEditText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:background="@android:color/transparent"
+                                        android:gravity="top"
+                                        android:hint="@string/stepper_complaint_user_description"
+                                        android:inputType="textMultiLine"
+                                        android:maxLines="12"
+                                        android:minLines="7"/>
+
+                            </android.support.design.widget.TextInputLayout>
+
+                        </LinearLayout>
+
+                        <Button
+                                android:id="@+id/bt_continue_complaint"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/btn_rounded_primary"
+                                android:gravity="center"
+                                android:minWidth="0dp"
+                                android:onClick="clickAction"
+                                android:text="CONTINUE"
+                                android:textColor="@android:color/white" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!--section confirmation-->
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                    <RelativeLayout
+                            android:id="@+id/step_confirmation"
+                            android:layout_width="@dimen/spacing_xlarge"
+                            android:layout_height="@dimen/spacing_xlarge"
+                            android:background="@drawable/shape_round_solid"
+                            android:gravity="center">
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="5"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                android:textColor="@android:color/white" />
+
+                    </RelativeLayout>
+
+                    <View
+                            android:layout_width="2dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/grey_10" />
+
+                </LinearLayout>
+
+                <View
+                        android:layout_width="@dimen/spacing_large"
+                        android:layout_height="0dp" />
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="?attr/actionBarSize"
+                        android:orientation="vertical">
+
+                    <TextView
+                            android:id="@+id/tv_label_confirmation"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/spacing_xlarge"
+                            android:gravity="center_vertical"
+                            android:onClick="clickLabel"
+                            android:paddingLeft="@dimen/spacing_small"
+                            android:paddingRight="@dimen/spacing_small"
+                            android:text="Confirmacion"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:textColor="@color/grey_90" />
+
+                    <LinearLayout
+                            android:id="@+id/lyt_confirmation"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/spacing_large"
+                            android:orientation="vertical">
+
+                        <Button
+                                android:id="@+id/bt_add_event"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/btn_rounded_primary"
+                                android:gravity="center"
+                                android:minWidth="0dp"
+                                android:onClick="clickAction"
+                                android:text="@string/stepper_complaint_save"
+                                android:textColor="@android:color/white" />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!--bottom line-->
+
+            <LinearLayout
+                    android:layout_width="@dimen/spacing_xlarge"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                <View
+                        android:layout_width="2dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/grey_10" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

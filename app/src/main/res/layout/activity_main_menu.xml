@@ -1,0 +1,85 @@
+
+
+    <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:weightSum="1">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="0.2">
+            <android.support.v4.widget.NestedScrollView
+                    android:id="@+id/nested_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    android:fillViewport="true"
+                    android:scrollbars="none"
+                    android:scrollingCache="true"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusableInTouchMode="true"
+                        android:orientation="vertical">
+
+                    <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                        <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="180dp"
+                                android:foreground="@color/overlay_dark_40"
+                                android:scaleType="centerCrop"
+                                app:layout_collapseMode="parallax"
+                                android:src="@drawable/fondo"/>
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:text="Proinfem\n Protegiendo la integridad femenina"
+                                android:textAlignment="center"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                android:textColor="@android:color/white"
+                                android:textStyle="bold"/>
+
+                    </RelativeLayout>
+
+                    <android.support.v7.widget.RecyclerView
+                            android:id="@+id/recyclerView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="-30dp"
+                            android:paddingLeft="@dimen/spacing_middle"
+                            android:paddingRight="@dimen/spacing_middle"
+                            android:scrollbars="vertical"
+                            android:scrollingCache="true"/>
+
+                </LinearLayout>
+
+
+            </android.support.v4.widget.NestedScrollView>
+        </LinearLayout>
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.8">
+            <ImageView
+                    android:id="@+id/footer_login"
+                    android:background="@drawable/footer_icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+            />
+        </LinearLayout>
+    </LinearLayout>
+
+

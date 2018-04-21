@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--shopping category data-->
+    <integer-array name="shop_category_icon">
+        <item>@drawable/ic_note</item>
+        <item>@drawable/ic_face</item>
+        <item>@drawable/ic_book</item>
+        <item>@drawable/ic_chat</item>
+        <item>@drawable/ic_settings</item>
+        <item>@drawable/ic_help</item>
+    </integer-array>
+
+    <string-array name="shop_category_title">
+        <item>DENUNCIA</item>
+        <item>CONTACTOS</item>
+        <item>INFORMATE</item>
+        <item>CHAT</item>
+        <item>CONFIGURAR</item>
+        <item>TUTORAIL</item>
+    </string-array>
+    <!--category Say-->
+    <integer-array name="category_say_icon">
+        <item>@drawable/ic_star</item>
+        <item>@drawable/ic_close</item>
+        <item>@drawable/ic_help</item>
+    </integer-array>
+
+    <string-array name="priority">
+        <item>1</item>
+        <item>0</item>
+    </string-array>
+
+    <string-array name="category_say_title">
+        <item>INICIAR</item>
+        <item>APAGAR</item>
+        <item>AYUDA</item>
+    </string-array>
+    <!--category state-->
+    <string-array name="state">
+        <item>ninguno</item>
+        <item>soltero(a)</item>
+        <item>casado(a)</item>
+        <item>divorsiado(a)</item>
+        <item>relacion</item>
+        <item>comprometido(a)</item>
+        <item>viudo(a)</item>
+    </string-array>
+    <!--category typeUser-->
+    <string-array name="type">
+        <item>contacto</item>
+        <item>entidad publica</item>
+        <item>agresor</item>
+    </string-array>
+    <!--category gender-->
+    <string-array name="gender">
+        <item>ninguno</item>
+        <item>masculino</item>
+        <item>femenino</item>
+    </string-array>
+    <!--category TypeAggression-->
+    <string-array name="typeAggression">
+        <item>Fisica</item>
+        <item>Feminicida</item>
+        <item>Psicológica</item>
+        <item>Mediática</item>
+        <item>Social</item>
+        <item>Dignidad</item>
+        <item>Sexual</item>
+        <item>Reproducción</item>
+        <item>Salud</item>
+        <item>Económica</item>
+        <item>Laboral</item>
+        <item>Educación</item>
+        <item>Político</item>
+        <item>Institucional</item>
+        <item>Familia</item>
+    </string-array>
+    <!--category search-->
+    <string-array name="filterOptions">
+        <item></item>
+        <item>Nombres</item>
+        <item>Celular</item>
+        <item>Tipo_contacto</item>
+    </string-array>
+</resources>

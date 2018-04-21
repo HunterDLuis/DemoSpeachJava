@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.demospeachjava.activity.configure.Configure">
+
+    <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <include layout="@layout/toolbar" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="vertical"
+                  android:weightSum="1"
+                  app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/button_left_config"
+                android:padding="@dimen/activity_vertical_margin_bar_config"
+                android:gravity="center"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="0.35"
+                android:background="@color/overlay_light_90">
+            <ImageView
+                    android:id="@+id/image"
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/photo_female_1" />
+            <View
+                    android:layout_width="@dimen/spacing_large"
+                    android:layout_height="0dp" />
+
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                    <TextView
+                            android:id="@+id/nombreUsuario"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Maria Eugenia Villarroel"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"/>
+                        <LinearLayout
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+                            <ImageButton
+                                    android:id="@+id/phone_config"
+                                    android:layout_width="?attr/actionBarSize"
+                                    android:layout_height="?attr/actionBarSize"
+                                    android:background="?attr/selectableItemBackgroundBorderless"
+                                    android:tint="@color/colorPrimary"
+                                    app:srcCompat="@drawable/ic_phone" />
+
+                            <TextView
+                                    android:id="@+id/numberPhone"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="61595782"
+                                    android:layout_alignBottom="@+id/phone_config"
+                                    android:layout_toRightOf="@+id/phone_config"
+                                    android:layout_toEndOf="@+id/phone_config"/>
+                        </LinearLayout>
+
+                </LinearLayout>
+                <View
+                        android:layout_width="@dimen/spacing_xlarge"
+                        android:layout_height="0dp" />
+                <LinearLayout
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                    <android.support.design.widget.FloatingActionButton
+                            android:id="@+id/view_inf_user"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@android:drawable/ic_menu_view"
+                            app:backgroundTint="@color/colorAccent"
+                            android:contextClickable="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentEnd="true"
+                            app:rippleColor="@color/colorPrimary"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/padding_horizontal_config"
+                android:layout_weight="0.25"
+                android:orientation="vertical">
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="@dimen/activity_horizontal_main_config"
+                    android:padding="@dimen/padding_horizontal_config"
+                    android:gravity="center_horizontal">
+                <Button
+                        android:id="@+id/configure_say"
+                        android:textStyle="bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/button_top_config"
+                        android:paddingTop="@dimen/button_padding_top"
+                        android:paddingBottom="@dimen/button_padding_bootom"
+                        android:background="@drawable/buttom"
+                        android:drawableTop="@drawable/ic_config_voz"
+                        android:text="@string/app_config_denuncia"
+                        tools:gravity="bottom|center_horizontal"
+                        android:onClick="lanzarVoz"/>
+
+            </LinearLayout>
+        </LinearLayout>
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4">
+            <ImageView
+                    android:id="@+id/footer_login"
+                    android:background="@drawable/footer_icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+            />
+        </RelativeLayout>
+
+    </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>
+
